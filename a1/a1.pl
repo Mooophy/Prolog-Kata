@@ -22,3 +22,9 @@ likes(tom,john).
 
 johnLikesThings(X) :- likes(mary, X).
 johnLikesWho(X) :- likes(X,cheese).
+
+/**
+ * likes(jhon,X).
+ * likes(john,Y).
+ * likes(X,book).
+ */
