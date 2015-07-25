@@ -148,3 +148,6 @@ prefers(hector, Female) :-
   woman(Female),
   petite(Female)
   hair(Female, blond).
+
+match(Lhs, Rhs) :-
+  prefers(Lhs, Rhs), prefers(Rhs, Lhs).
