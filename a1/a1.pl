@@ -94,3 +94,7 @@ son(Person, Father) :-
 
 %aunt(apollo, X).
 %son(X, zeus).
+
+/**
+ * Part 4.
+ */
