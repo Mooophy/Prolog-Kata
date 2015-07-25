@@ -71,6 +71,19 @@ parents(hebe, zeus,hera).
 parents(hephaestus, zeus,hera).
 parents(artemis, zeus,leto).
 parents(rhea, uranus,gaea).
-brother(Person1, Person2):-male(Person1),
+
+brother(Person1, Person2) :- 
+  male(Person1),
   parents(Person1, Father, Mother),
-  parents(Person2, Father, Mother), Person1 \= Person2.
+  parents(Person2, Father, Mother), 
+  Person1 \= Person2.
+
+sister(Person1, Person2) :-
+  female(Person1),
+  parents(Person1, Father, Mother),
+  parents(Person2, Father, Mother), 
+  Person1 \= Person2.
+
+aunt(Person, Aunt) :-
+  female(Aunt),
+  parents(Person,F,M) , sister(Aunt,F) ; parents(Person,F,M) , sister(Aunt,M).
