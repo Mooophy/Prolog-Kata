@@ -4,6 +4,7 @@
 output :-
   write('----159.202 Assignment 1----'), nl,
   write('ID: 12086075, Name: Liu Kuan'), nl,
+  write('ID: 15242698, Name: Zhenlin Cheng'), nl,
   write('----All 4 parts solved------'), nl.
 
 /**
@@ -151,3 +152,18 @@ prefers(hector, Female) :-
 
 match(Lhs, Rhs) :-
   prefers(Lhs, Rhs), prefers(Rhs, Lhs).
+  
+%?- match(X, Y).
+%X = max,
+%Y = eve ;
+%X = eve,
+%Y = max ;
+%X = eve,
+%Y = marc ;
+%X = julie,
+%Y = luc ;
+%X = luc,
+%Y = julie ;
+%X = marc,
+%Y = eve ;
+%false.
