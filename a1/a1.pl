@@ -28,3 +28,49 @@ johnLikesWho(X) :- likes(X,cheese).
  * likes(john,Y).
  * likes(X,book).
  */
+
+/**
+ * Part 3.
+ */
+ % Some Greek gods
+male(apollo).
+male(ares).
+male(cronus).
+male(coeus).
+male(hades).
+male(hephaestus).
+male(oceanus).
+male(poseidon).
+male(uranus).
+male(zeus).
+
+% Some Greek goddesses
+female(aphrodite).
+female(artemis).
+female(demeter).
+female(gaea).
+female(hera).
+female(hestia).
+female(leto).
+female(phoebe).
+female(rhea).
+
+%parents(person, father, mother)
+parents(apollo, zeus,leto).
+parents(cronus,uranus,gaea).
+parents(coeus, uranus, gaea).
+parents(ares, zeus,hera).
+parents(phoebe, uranus, gaea).
+parents(hestia,cronus,rhea).
+parents(poseidon,cronus,rhea).
+parents(hades,cronus,rhea).
+parents(zeus,cronus,rhea).
+parents(demeter,cronus,rhea).
+parents(oceanus, uranus, gaea).
+parents(hebe, zeus,hera).
+parents(hephaestus, zeus,hera).
+parents(artemis, zeus,leto).
+parents(rhea, uranus,gaea).
+brother(Person1, Person2):-male(Person1),
+  parents(Person1, Father, Mother),
+  parents(Person2, Father, Mother), Person1 \= Person2.
