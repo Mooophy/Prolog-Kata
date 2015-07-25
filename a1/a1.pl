@@ -87,3 +87,7 @@ sister(Person1, Person2) :-
 aunt(Person, Aunt) :-
   female(Aunt),
   parents(Person,F,M) , sister(Aunt,F) ; parents(Person,F,M) , sister(Aunt,M).
+
+son(Person, Father) :-
+  male(Father),
+  parents(Person, Father, M).
