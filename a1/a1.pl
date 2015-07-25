@@ -91,3 +91,6 @@ aunt(Person, Aunt) :-
 son(Person, Father) :-
   male(Father),
   parents(Person, Father, M).
+
+%aunt(apollo, X).
+%son(X, zeus).
