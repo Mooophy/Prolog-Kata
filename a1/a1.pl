@@ -121,3 +121,27 @@ hair(carmela, blond).
 
 petite(X) :-
   X = anna ; height(X, H), H < 160.
+
+prefers(max, Female) :-
+  woman(Female),
+  petite(Female),
+  hair(Female, brunette).
+prefers(anna, Male) :-
+  man(Male).
+prefers(eve, Male) :-
+  man(Male).
+prefers(julie, Male) :-
+  man(Male),
+  height(Male) > height(julie).
+prefers(carmela, Male) :-
+  man(Male).
+
+prefers(luc, Female) :-
+  woman(Female),
+  hair(Female, red).
+prefers(marc, Female) :-
+  woman(Female),
+  hair(Female, brunette) .
+prefers(hector, Female) :-
+  woman(Female),
+  petite(Female).
