@@ -132,7 +132,9 @@ prefers(eve, Male) :-
   man(Male).
 prefers(julie, Male) :-
   man(Male),
-  height(Male) > height(julie).
+  height(Male, Mh),
+  height(julie, Jh),
+  Mh > Jh.
 prefers(carmela, Male) :-
   man(Male).
 
@@ -144,4 +146,5 @@ prefers(marc, Female) :-
   hair(Female, brunette) .
 prefers(hector, Female) :-
   woman(Female),
-  petite(Female).
+  petite(Female)
+  hair(Female, blond).
