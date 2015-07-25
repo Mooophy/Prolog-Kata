@@ -98,3 +98,26 @@ son(Person, Father) :-
 /**
  * Part 4.
  */
+woman(anna).
+woman(eve).
+woman(julie).
+woman(carmela).
+
+man(luc).
+man(max).
+man(marc).
+man(hector).
+
+height(eve, 155).
+height(julie, 165).
+height(carmela, 159).
+height(luc, 170).
+height(marc, 190).
+
+hair(anna, blond).
+hair(eve, brunette).
+hair(julie, red).
+hair(carmela, blond).
+
+petite(X) :-
+  X = anna ; height(X, H), H < 160.
