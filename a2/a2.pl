@@ -1,4 +1,4 @@
 %Part B
-:- op(200, xfx, =>>).
-=>>(L, R) :- double(L, R); double(R, L).
-double(L, R) :- L is R * 2.
+:- op(900, xfy, =>>).
+=>>(L, R) :- once(double(L, R); double(R, L)).
+double(L, R) :- L =:= R * 2.
