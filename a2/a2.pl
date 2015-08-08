@@ -9,6 +9,6 @@ isSingleton(List) :-
 
 %Part C
 totalInList([], 0).
-totalInList([H|T], N) :-
-  totalInList(T, N1), N is N1 + H. 
+totalInList([Head|Tail], Sum) :-
+  totalInList(Tail, SumWithoutHead), Sum is Head + SumWithoutHead. 
   
