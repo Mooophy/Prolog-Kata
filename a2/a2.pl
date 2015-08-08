@@ -46,11 +46,11 @@ translate([EH|ET], [FH|FT]) :-
 
 notin(X,[]).
 notin(X,[H|T]) 
-  :- X\=H,              notin(X,T).
+  :- X\=H,  notin(X,T).
 
 nodups([]).
 nodups([A|B]) 
-  :- notin(A,B),        nodups(B).
+  :- notin(A,B),  nodups(B).
 
 item(a).
 item(b).
@@ -59,14 +59,14 @@ item(d).
 
 allItems([]).
 allItems([H|T]) 
-  :- item(H),           allItems(T).
+  :- item(H), allItems(T).
 
 arr(Arr, Size) 
   :- length(Arr, Size), allItems(Arr),  nodups(Arr).
 
 allArr([]).
 allArr([H|T]) 
-  :- arr(H, 4),         allArr(T).
+  :- arr(H, 4), allArr(T).
 
 fillSq(Sq) 
-  :- length(Sq, 4),     allArr(Sq),     nodups(Sq).
+  :- length(Sq, 4), allArr(Sq), nodups(Sq).
