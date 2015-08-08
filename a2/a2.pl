@@ -24,6 +24,20 @@ count(Word, [OtherWord|Tail], NofTail) :-
 adjAve([],[]).
 adjAve([_],[]).
 adjAve([Fst, Snd | TailIn], [Ave | TailOut]) :-
-    adjAve(TailIn, TailOut), Ave is (Fst + Snd) / 2.
+  adjAve(TailIn, TailOut), Ave is (Fst + Snd) / 2.
 
+%C.d
+word(one,   un).
+word(two,   deux).
+word(three, trois).
+word(four,  quatre).
+word(five,  clinq).
+word(six,   six).
+word(seven, sept).
+word(eight, huit).
+word(nine,  neuf).
+word(ten,   dix).
 
+translate([],[]).
+translate([EH|ET], [FH|FT]) :-
+  word(EH,FH), translate(ET, FT).   
