@@ -40,4 +40,38 @@ word(ten,   dix).
 
 translate([],[]).
 translate([EH|ET], [FH|FT]) :-
-  word(EH,FH), translate(ET, FT).   
+  word(EH,FH), translate(ET, FT).
+
+%Part D
+
+notin(X,[]).
+notin(X,[H|T]) :- X\=H, notin(X,T).
+
+nodups([]).
+nodups([A|B]) :- notin(A,B), nodups(B).
+
+item(a).
+item(b).
+item(c).
+item(d).
+
+allItems([]).
+allItems([H|T]) :-
+  item(H),
+  allItems(T).
+
+arr(Arr, Size) :-
+  length(Arr, Size),
+  allItems(Arr),
+  nodups(Arr).
+
+fillSq([R0, R1, R2, R3]) :-
+  arr(R0, 4),
+  arr(R1, 4),
+  arr(R2, 4),
+  arr(R3, 4),
+  nodups([R0, R1, R2, R3]).
+  
+  
+  
+   
