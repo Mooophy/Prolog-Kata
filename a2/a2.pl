@@ -45,10 +45,12 @@ translate([EH|ET], [FH|FT]) :-
 %Part D
 
 notin(X,[]).
-notin(X,[H|T]) :- X\=H, notin(X,T).
+notin(X,[H|T]) 
+  :- X\=H,              notin(X,T).
 
 nodups([]).
-nodups([A|B]) :- notin(A,B), nodups(B).
+nodups([A|B]) 
+  :- notin(A,B),        nodups(B).
 
 item(a).
 item(b).
@@ -56,22 +58,15 @@ item(c).
 item(d).
 
 allItems([]).
-allItems([H|T]) :-
-  item(H),
-  allItems(T).
+allItems([H|T]) 
+  :- item(H),           allItems(T).
 
-arr(Arr, Size) :-
-  length(Arr, Size),
-  allItems(Arr),
-  nodups(Arr).
+arr(Arr, Size) 
+  :- length(Arr, Size), allItems(Arr),  nodups(Arr).
 
-fillSq([R0, R1, R2, R3]) :-
-  arr(R0, 4),
-  arr(R1, 4),
-  arr(R2, 4),
-  arr(R3, 4),
-  nodups([R0, R1, R2, R3]).
-  
-  
-  
-   
+allArr([]).
+allArr([H|T]) 
+  :- arr(H, 4),         allArr(T).
+
+fillSq(Sq) 
+  :- length(Sq, 4),     allArr(Sq),     nodups(Sq).
