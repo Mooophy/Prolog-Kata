@@ -43,7 +43,6 @@ translate([EH|ET], [FH|FT]) :-
   word(EH,FH), translate(ET, FT).
 
 %Part D
-
 notin(X,[]).
 notin(X,[H|T]) 
   :- X\=H,  notin(X,T).
