@@ -10,5 +10,10 @@ isSingleton(List) :-
 %Part C
 totalInList([], 0).
 totalInList([Head|Tail], Sum) :-
-  totalInList(Tail, SumOfTail), Sum is Head + SumOfTail. 
-  
+  totalInList(Tail, SumOfTail), Sum is Head + SumOfTail.
+
+count(Word, [], 0).
+count(Word, [Word|Tail], N) :-
+  count(Word, Tail, NofTail), N is 1 + NofTail.
+count(Word, [OtherWord|Tail], NofTail) :-
+  OtherWord \= Word, count(Word, Tail, NofTail).
