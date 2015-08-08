@@ -77,8 +77,6 @@ noClash([L|Ls], [R|Rs])
   :- L \= R, noClash(Ls, Rs).
 
 %ii
-%testSq(Sq)
-%  :- member(Row1, Sq), member(Row2, Sq), noClash(Row1, Row2).
 testSq([R0,R1,R2,R3])
   :- 
     noClash(R0, R1),
@@ -90,4 +88,3 @@ testSq([R0,R1,R2,R3])
 
 generateSq(Sq)
   :- fillSq(Sq), testSq(Sq).
-  
