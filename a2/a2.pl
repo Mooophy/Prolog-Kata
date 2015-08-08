@@ -68,5 +68,26 @@ allArr([]).
 allArr([H|T]) 
   :- arr(H, 4), allArr(T).
 
+%i
 fillSq(Sq) 
   :- length(Sq, 4), allArr(Sq), nodups(Sq).
+
+noClash([], []).
+noClash([L|Ls], [R|Rs])
+  :- L \= R, noClash(Ls, Rs).
+
+%ii
+%testSq(Sq)
+%  :- member(Row1, Sq), member(Row2, Sq), noClash(Row1, Row2).
+testSq([R0,R1,R2,R3])
+  :- 
+    noClash(R0, R1),
+    noClash(R0, R2),
+    noClash(R0, R3),
+    noClash(R1, R2),
+    noClash(R1, R3),
+    noClash(R2, R3).
+
+generateSq(Sq)
+  :- fillSq(Sq), testSq(Sq).
+  
