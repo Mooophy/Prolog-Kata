@@ -43,61 +43,12 @@ translate([EH|ET], [FH|FT]) :-
   word(EH,FH), translate(ET, FT).
 
 %Part D
-notin(X,[]).
-notin(X,[H|T]) 
-  :- X\=H,  notin(X,T).
-
-nodups([]).
-nodups([A|B]) 
-  :- notin(A,B),  nodups(B).
-
 item(a).
 item(b).
 item(c).
 item(d).
 
-allItems([]).
-allItems([H|T]) 
-  :- item(H), allItems(T).
-
-arr(Arr, Size) 
-  :- length(Arr, Size), allItems(Arr),  nodups(Arr).
-
-allArr([]).
-allArr([H|T]) 
-  :- arr(H, 4), allArr(T).
-
-%i
-fillSq(Sq) 
-  :- length(Sq, 4), allArr(Sq), nodups(Sq).
-
-noClash([], []).
-noClash([L|Ls], [R|Rs])
-  :- L \= R, noClash(Ls, Rs).
-
-%ii
-testSq([R0,R1,R2,R3])
-  :- 
-    noClash(R0, R1),
-    noClash(R0, R2),
-    noClash(R0, R3),
-    noClash(R1, R2),
-    noClash(R1, R3),
-    noClash(R2, R3).
-
-printList([])
-  :- write('|').
-printList([H|T])
-  :- write('| '), write(H), write(' '), printList(T).
-
-printRow(Row)
-  :- write('-----------------\n'), length(Row, Len), printList(Row).
-
-%iii
-displaySq([])
-  :- write('-----------------\n').
-displaySq([H|T])
-  :- printRow(H), write('\n'), displaySq(T).
-
-generateSq(Sq)
-  :- fillSq(Sq), testSq(Sq), displaySq(Sq).
+fillRow([X0, X1, X2, X3])
+  :- item(X0), item(X1), item(X2), item(X3).
+fillSq([R0, R1, R2, R3])
+  :- fillRow(R0), fillRow(R1), fillRow(R2), fillRow(R3).
