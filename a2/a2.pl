@@ -59,8 +59,18 @@ fillRow([X0, X1, X2, X3])
       X1 \= X2, 
       X1 \= X3, 
       X2 \= X3.
+
 fillSq([R0, R1, R2, R3])
-  :- fillRow(R0), fillRow(R1), fillRow(R2), fillRow(R3).
+  :-  fillRow(R0), 
+      fillRow(R1), 
+      fillRow(R2), 
+      fillRow(R3),
+      R0 \= R1,
+      R0 \= R2,
+      R0 \= R3,
+      R1 \= R2,
+      R1 \= R3,
+      R2 \= R3.
 
 generateSq([R0, R1, R2, R3])
   :- fillSq([R0, R1, R2, R3]). 
