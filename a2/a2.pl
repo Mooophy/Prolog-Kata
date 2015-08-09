@@ -88,13 +88,14 @@ testSq([R0,R1,R2,R3])
 printList([])
   :- write('|').
 printList([H|T])
-  :- write('|'), write(H), printList(T).
+  :- write('| '), write(H), write(' '), printList(T).
 
 printRow(Row)
-  :- write('---------\n'), length(Row, Len), printList(Row).
+  :- write('-----------------\n'), length(Row, Len), printList(Row).
 
+%iii
 displaySq([])
-  :- write('---------\n').
+  :- write('-----------------\n').
 displaySq([H|T])
   :- printRow(H), write('\n'), displaySq(T).
 
