@@ -85,5 +85,18 @@ testSq([R0,R1,R2,R3])
     noClash(R1, R3),
     noClash(R2, R3).
 
+printList([])
+  :- write('|').
+printList([H|T])
+  :- write('|'), write(H), printList(T).
+
+printRow(Row)
+  :- write('---------\n'), length(Row, Len), printList(Row).
+
+displaySq([])
+  :- write('---------\n').
+displaySq([H|T])
+  :- printRow(H), write('\n'), displaySq(T).
+
 generateSq(Sq)
-  :- fillSq(Sq), testSq(Sq).
+  :- fillSq(Sq), testSq(Sq), displaySq(Sq).
