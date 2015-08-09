@@ -49,6 +49,18 @@ item(c).
 item(d).
 
 fillRow([X0, X1, X2, X3])
-  :- item(X0), item(X1), item(X2), item(X3).
+  :-  item(X0), 
+      item(X1), 
+      item(X2), 
+      item(X3),
+      X0 \= X1, 
+      X0 \= X2, 
+      X0 \= X3, 
+      X1 \= X2, 
+      X1 \= X3, 
+      X2 \= X3.
 fillSq([R0, R1, R2, R3])
   :- fillRow(R0), fillRow(R1), fillRow(R2), fillRow(R3).
+
+generateSq([R0, R1, R2, R3])
+  :- fillSq([R0, R1, R2, R3]). 
